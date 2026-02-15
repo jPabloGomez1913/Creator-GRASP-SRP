@@ -40,3 +40,30 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - Order no puede validar los LineItems que se agregan
 - No hay control sobre cómo se construyen los items
 - La lógica de negocio está dispersa
+
+## Aplicación de los principios
+
+## Solción planteada
+     ┌─────────┐
+    │Customer │
+    └────┬────┘
+         │
+         │ Solo conoce Order
+         ▼
+     ┌───────┐
+     │ Order │
+     └───┬───┘
+         │
+         │ Solo conoce LineItem y Product
+         ├────────┐
+         ▼        ▼
+    LineItem   Product
+
+## Beneficios:
+
+- Customer solo depende de Order
+- Customer NO conoce LineItem (desacoplado)
+- Si LineItem cambia, solo afecta a Order
+- Menor propagación de cambios
+
+

@@ -47,9 +47,10 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 
 Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 
-# #Desiciones
-- Se decidio agregar constructores privados para evitar creación descontrolada, por el contrario se expusieron metodos estaticos
-- Setter privado para que la entidad controla CÓMO se modifican sus propiedades
+
+
+
+
      ┌─────────┐
     │Customer │
     └────┬────┘
@@ -66,6 +67,11 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
     LineItem   Product
 
 
+
+# #Desiciones
+
+- Se decidio agregar constructores privados para evitar creación descontrolada, por el contrario se expusieron metodos estaticos
+- Setter privado para que la entidad controla CÓMO se modifican sus propiedades
 
 ## Beneficios:
 

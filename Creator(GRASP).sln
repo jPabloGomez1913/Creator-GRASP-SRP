@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creator(GRASP)", "Creator(GRASP)\Creator(GRASP).csproj", "{788FABDA-4777-455E-8626-579FA53FA9F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creator(GRASP)AndSRP", "Creator(GRASP)\Creator(GRASP)AndSRP.csproj", "{788FABDA-4777-455E-8626-579FA53FA9F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No-Creator", "No-Creator\No-Creator.csproj", "{1361FE33-333F-46F2-9FAC-AC7590BDB2C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No_CreatorAndSRP", "No-Creator\No_CreatorAndSRP.csproj", "{1361FE33-333F-46F2-9FAC-AC7590BDB2C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

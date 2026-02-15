@@ -2,16 +2,18 @@
 
 namespace Creator_GRASP_.Customers
 {
+    //Esta se usa para explicar la solucion a la violacion del patron creator
     public class Customer
     {
+        //Los constructores privados evitan la creación descontrolada de objetos
         private Customer(int id, string email, string name)
         {
             CustomerId = id;
             Email = email;
             Name = name;
-
                 
         }
+
         public int CustomerId { get; private set; }
         public string Email { get; private set; } = string.Empty;
         public string Name { get; private set; } = string.Empty;

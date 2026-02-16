@@ -41,7 +41,6 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - No hay control sobre cómo se construyen los items
 - La lógica de negocio está dispersa
 
-## Aplicación de los principios
 
 ## Solución planteada
 
@@ -70,8 +69,8 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 
 ## Decisiones
 
-- Se decidio agregar constructores privados para evitar creación descontrolada, por el contrario se expusieron metodos estaticos
 - Setter privado para que la entidad controla CÓMO se modifican sus propiedades
+- Se usa un Factory Method para que  solo pueden crearse a través de sus métodos Register() y evitar la aparicion de new() por todas partes
 
 ## Beneficios:
 

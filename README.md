@@ -80,4 +80,60 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 - Si LineItem cambia, solo afecta a Order
 - Menor propagación de cambios
 
+-------------------------------------------------
 
+#  Single Responsibility Principe (SRP)
+
+## Descripción
+
+Adicionalmente, en esta sección del documento se explicará la aplicación del principio **SRP (Single Responsability Principe** dentro del sistema e-commerce utilizado.
+El objetivo es asegurar que cada clase tenga una única razón para cambiar, mejorando la mantenibilidad y optimizando el acoplamiento del sistema.
+
+---
+
+## Contenido del sistema
+
+El sistema permite a los clientes realizar órdenes de compra y está compuesto por las siguientes entidades principales:
+
+- **Customer (Cliente)** → Representa a un usuario del sistema.
+- **Order (Orden)** → Representa una orden de compra realizada por un cliente.
+- **LineItem (Línea de pedido)** → Representa cada producto individual dentro de una orden.
+- **Product (Producto)** → Representa un producto disponible en el catálogo.
+
+---
+
+## Problema inicial
+
+En el diseño original, las clases tenían múltiples responsabilidades, violando el principio SRP:
+
+┌──────────────────────────────────────┐
+│           Customer                   │
+├──────────────────────────────────────┤
+│ - Crear órdenes                      │
+└──────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│           Product                    │
+├──────────────────────────────────────┤
+│ - ActualizarStock                    │
+│ - SolicitarUnidades                  │
+│ - EnviarEmailProveedor               │
+└──────────────────────────────────────┘
+
+## Consecuencias
+
+- Si cambia el proceso de creación de productos, hay que modificar Customer
+- Si cambia la lógica de la actualización del stock, hay que actualizar producto
+- Si cambia el proceso de envío de notificaciones al proveedor, hay que modificar Product
+
+## Problemas
+
+- Las clases hacen cosas no relacionadas
+- Depende de múltiples subsistemas
+- Un cambio puede romper múltiples funcionalidades
+- No se puede usar una funcionalidad sin las demás
+
+## Aplicación de los principios
+
+## Solución planteada
+
+Para la solución se decidió aplicar SRP separando responsabilidades en clases especializadas:

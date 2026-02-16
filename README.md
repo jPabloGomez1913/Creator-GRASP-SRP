@@ -43,7 +43,7 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 
 ## Aplicación de los principios
 
-## Solción planteada
+## Solución planteada
 
 Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 
@@ -68,7 +68,7 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 
 
 
-# #Desiciones
+## Decisiones
 
 - Se decidio agregar constructores privados para evitar creación descontrolada, por el contrario se expusieron metodos estaticos
 - Setter privado para que la entidad controla CÓMO se modifican sus propiedades
@@ -107,26 +107,17 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 En el diseño original, las clases tenían múltiples responsabilidades, violando el principio SRP:
 
 ┌──────────────────────────────────────┐
-
 │           Customer                   │
-
 ├──────────────────────────────────────┤
-
 │ - Crear órdenes                      │
-
+│ - Gestionar Datos                    │
 └──────────────────────────────────────┘
 ┌──────────────────────────────────────┐
-
 │           Product                    │
-
 ├──────────────────────────────────────┤
-
 │ - ActualizarStock                    │
-
 │ - SolicitarUnidades                  │
-
 │ - EnviarEmailProveedor               │
-
 └──────────────────────────────────────┘
 
 ## Consecuencias
@@ -147,3 +138,33 @@ En el diseño original, las clases tenían múltiples responsabilidades, violand
 ## Solución planteada
 
 Para la solución se decidió aplicar SRP separando responsabilidades en clases especializadas:
+
+┌─────────────┐
+│  Customer   │  → Solo registra los clientes y crea las órdenes
+└─────────────┘
+
+┌─────────────────────────┐
+│    CustomerService      │  → Solo gestiona los datos del cliente
+└─────────────────────────┘
+
+┌─────────────┐
+│    Order    │  → Solo gestiona las órdenes (creadas por Customer)
+└─────────────┘
+
+┌─────────────────────────┐
+│    InventoryManager     │  → Solo gestiona el manejo del inventario
+└─────────────────────────┘
+
+## Decisiones
+
+- Se decidió optar por que customer solo registre clientes y cree órdenes
+- Los cálculos realizados dentro de Order se realizan dentro de su propia clase
+- Productos se enfoca en su propia información
+- Se separa la gestión de inventarios
+
+## Beneficios:
+
+- Se mejora la relación y cohesión entre las funcionalidades de las clases
+- Se reducen las dependencias entre clases 
+- Mejor mantenibilidad y testeabilidad
+- Facilita la aplicación de otros principios

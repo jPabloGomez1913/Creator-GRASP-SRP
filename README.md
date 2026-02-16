@@ -107,16 +107,26 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 En el diseño original, las clases tenían múltiples responsabilidades, violando el principio SRP:
 
 ┌──────────────────────────────────────┐
+
 │           Customer                   │
+
 ├──────────────────────────────────────┤
+
 │ - Crear órdenes                      │
+
 └──────────────────────────────────────┘
 ┌──────────────────────────────────────┐
+
 │           Product                    │
+
 ├──────────────────────────────────────┤
+
 │ - ActualizarStock                    │
+
 │ - SolicitarUnidades                  │
+
 │ - EnviarEmailProveedor               │
+
 └──────────────────────────────────────┘
 
 ## Consecuencias

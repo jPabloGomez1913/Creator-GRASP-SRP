@@ -50,20 +50,29 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
 
 
 
-     ┌─────────┐
-    │Customer │
-    └────┬────┘
-         │
-         │ Solo conoce Order
-         ▼
-     ┌───────┐
-     │ Order │
-     └───┬───┘
-         │
-         │ Solo conoce LineItem y Product
-         ├────────┐
-         ▼        ▼
-    LineItem   Product
+        ┌──────────┐
+        │ Customer │
+        └────┬─────┘
+             Crea
+             │        
+             ▼
+         ┌───────┐          ┌─────────┐
+         │ Order │◄─────────│ Product │
+         └───┬───┘  Recibe  └─────────┘
+             │      como        │
+             │      parámetro   │ Genera
+             │                  ▼
+             │           ┌──────────────┐
+             │           │ProductSnapshot│
+             │           └──────┬───────┘
+             │                  │
+             │           Usa para crear
+             ▼                  │
+         ┌──────────┐◄──────────┘
+         │ LineItem │
+         └──────────┘
+
+
 
 
 
@@ -105,19 +114,19 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 
 En el diseño original, las clases tenían múltiples responsabilidades, violando el principio SRP:
 
-┌──────────────────────────────────────┐
-│           Customer                   │
-├──────────────────────────────────────┤
-│ - Crear órdenes                      │
-│ - Gestionar Datos                    │
-└──────────────────────────────────────┘
-┌──────────────────────────────────────┐
-│           Product                    │
-├──────────────────────────────────────┤
-│ - ActualizarStock                    │
-│ - SolicitarUnidades                  │
-│ - EnviarEmailProveedor               │
-└──────────────────────────────────────┘
+        ┌──────────────────────────────────────┐
+        │           Customer                   │
+        ├──────────────────────────────────────┤
+        │ - Crear órdenes                      │
+        │ - Gestionar Datos                    │
+        └──────────────────────────────────────┘
+        ┌──────────────────────────────────────┐
+        │           Product                    │
+        ├──────────────────────────────────────┤
+        │ - ActualizarStock                    │
+        │ - SolicitarUnidades                  │
+        │ - EnviarEmailProveedor               │
+        └──────────────────────────────────────┘
 
 ## Consecuencias
 
@@ -138,21 +147,21 @@ En el diseño original, las clases tenían múltiples responsabilidades, violand
 
 Para la solución se decidió aplicar SRP separando responsabilidades en clases especializadas:
 
-┌─────────────┐
-│  Customer   │  → Solo registra los clientes y crea las órdenes
-└─────────────┘
-
-┌─────────────────────────┐
-│    CustomerService      │  → Solo gestiona los datos del cliente
-└─────────────────────────┘
-
-┌─────────────┐
-│    Order    │  → Solo gestiona las órdenes (creadas por Customer)
-└─────────────┘
-
-┌─────────────────────────┐
-│    InventoryManager     │  → Solo gestiona el manejo del inventario
-└─────────────────────────┘
+        ┌─────────────┐
+        │  Customer   │  → Solo registra los clientes y crea las órdenes
+        └─────────────┘
+        
+        ┌─────────────────────────┐
+        │    CustomerService      │  → Solo gestiona los datos del cliente
+        └─────────────────────────┘
+        
+        ┌─────────────┐
+        │    Order    │  → Solo gestiona las órdenes (creadas por Customer)
+        └─────────────┘
+        
+        ┌─────────────────────────┐
+        │    InventoryManager     │  → Solo gestiona el manejo del inventario
+        └─────────────────────────┘
 
 ## Decisiones
 

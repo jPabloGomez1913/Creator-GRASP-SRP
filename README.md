@@ -22,14 +22,35 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 
 En el diseño original, la clase `Customer` estaba fuertemente acoplada a múltiples clases del dominio:
 
-        ┌─────────┐
-        │Customer │
-        └────┬────┘
+        ┌──────────┐
+        │ Customer │
+        └────┬─────┘
              │
-    ┌────────┼────────┐
-    │        │        │
-    ▼        ▼        ▼
- Order   LineItem  Product
+             │ CreateOrder() hace TODO:
+             │
+             ├──────────────────────────┐
+             │                          │
+             │ 1. Crea Product          │
+             ▼                          │
+        ┌─────────┐                     │
+        │ Product │ ◄── new Product()   │
+        └─────────┘     directamente    │
+                                        │
+             │ 2. Crea Order            │
+             ▼                          │
+         ┌───────┐                      │
+         │ Order │ ◄── new Order()      │
+         └───────┘    directamente      │
+                                        │
+             │ 3. Crea LineItem         │
+             ▼                          │
+        ┌──────────┐                    │
+        │ LineItem │◄── new LineItem()  │
+        └──────────┘    directamente    │
+             │                          │
+             │ 4. Agrega manualmente    │
+             └──────────────────────────┘
+                   order.LineItems.Add(lineItem)
 
 ##  Consecuencias:
 - Si cambia la estructura de LineItem, hay que modificar Customer

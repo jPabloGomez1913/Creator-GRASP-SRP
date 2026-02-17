@@ -56,6 +56,7 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - Si cambia la estructura de LineItem, hay que modificar Customer
 - Si cambia cómo se agregan items a Order, hay que modificar Customer
 - Customer tiene demasiadas dependencias
+- Alto acomplamiento
 
 ##  Problemas:
 - Order no puede validar los LineItems que se agregan

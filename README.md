@@ -72,9 +72,6 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - Aggregate root, quiere dcir que solo el que lo contiene es quien lo crea,esto cumple una de las condiciones de Creator
 
 
-
-
-
         ┌──────────┐
         │ Customer │
         └────┬─────┘
@@ -106,6 +103,8 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - Customer NO conoce LineItem (desacoplado)
 - Si LineItem cambia, solo afecta a Order
 - Menor propagación de cambios
+- Alta cohesión
+- Bajo acoplamiento
 
 -------------------------------------------------
 

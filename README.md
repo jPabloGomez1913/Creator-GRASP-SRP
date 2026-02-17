@@ -65,7 +65,11 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 
 ## Solución planteada
 
-Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
+### Para la solución se decidio aplicar cietos conceptos de DDD(DOMAIN DRIVE DESIGN):
+- Setter privado para que la entidad controla CÓMO se modifican sus propiedades
+- Se usa un Factory Method para que  solo pueden crearse a través de sus métodos Register()
+- Encapsulación de dominio para  evitar la aparicion de new() por todas partes (Constructores privados)
+- Aggregate root, quiere dcir que solo el que lo contiene es quien lo crea,esto cumple una de las condiciones de Creator
 
 
 
@@ -95,11 +99,6 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
         
 
 
-
-## Decisiones
-
-- Setter privado para que la entidad controla CÓMO se modifican sus propiedades
-- Se usa un Factory Method para que  solo pueden crearse a través de sus métodos Register() y evitar la aparicion de new() por todas partes
 
 ## Beneficios:
 

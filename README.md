@@ -53,26 +53,25 @@ Para la solución se decidio aplicar un DDD(DOMAIN DRIVE DESIGN)
         ┌──────────┐
         │ Customer │
         └────┬─────┘
-             Crea
-             │        
+             │ Crea
              ▼
          ┌───────┐          ┌─────────┐
          │ Order │◄─────────│ Product │
          └───┬───┘  Recibe  └─────────┘
-             │      como        │
-             │      parámetro   │ Genera
-             │                  ▼
-             │           ┌──────────────┐
-             │           │ProductSnapshot│
-             │           └──────┬───────┘
-             │                  │
-             │           Usa para crear
-             ▼                  │
-         ┌──────────┐◄──────────┘
-         │ LineItem │
-         └──────────┘
-
-
+             │      como
+             │      parámetro
+             │      y accede
+             │      directamente
+             │
+             │ Usa product.Id
+             │ Usa product.Price
+             │ Crea
+             ▼
+        ┌──────────┐
+        │ LineItem │
+        └──────────┘
+        
+        
 
 
 

@@ -22,7 +22,7 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 
 En el diseño original, la clase `Customer` estaba fuertemente acoplada a múltiples clases del dominio:
 
-![Diagrama](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/23c4e1a2103df1ab6a395056d3220bd8cafadb24/DiagramaNOCreator.pdf)
+![image alt]([https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/23c4e1a2103df1ab6a395056d3220bd8cafadb24/DiagramaNOCreator.pdf](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/392338d68dfd719a7e53b824ef62f59ea3fd3274/UML%20NoCreator.png))
 
      ┌──────────┐
         │ Customer │

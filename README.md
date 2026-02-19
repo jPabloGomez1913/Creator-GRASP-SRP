@@ -75,6 +75,7 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 - Encapsulación de dominio para  evitar la aparicion de new() por todas partes (Constructores privados)
 - Aggregate root, quiere dcir que solo el que lo contiene es quien lo crea,esto cumple una de las condiciones de Creator
 
+![img alt](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/372aee9956a45d6f5c3d52ae02b6a94d2484feeb/UMLbueno.png)
 
         ┌──────────┐
         │ Customer │

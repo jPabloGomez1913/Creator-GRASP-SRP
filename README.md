@@ -22,37 +22,8 @@ El sistema permite a los clientes realizar órdenes de compra y está compuesto 
 
 En el diseño original, la clase `Customer` estaba fuertemente acoplada a múltiples clases del dominio:
 
-![image alt](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/23c4e1a2103df1ab6a395056d3220bd8cafadb24/DiagramaNOCreator.pdf)
+![Diagrama](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/23c4e1a2103df1ab6a395056d3220bd8cafadb24/DiagramaNOCreator.pdf)
 
-        ┌──────────┐
-        │ Customer │
-        └────┬─────┘
-             │
-             │ CreateOrder() hace TODO:
-             │
-             ├──────────────────────────┐
-             │                          │
-             │ 1. Crea Product          │
-             ▼                          │
-        ┌─────────┐                     │
-        │ Product │ ◄── new Product()   │
-        └─────────┘     directamente    │
-                                        │
-             │ 2. Crea Order            │
-             ▼                          │
-         ┌───────┐                      │
-         │ Order │ ◄── new Order()      │
-         └───────┘    directamente      │
-                                        │
-             │ 3. Crea LineItem         │
-             ▼                          │
-        ┌──────────┐                    │
-        │ LineItem │◄── new LineItem()  │
-        └──────────┘    directamente    │
-             │                          │
-             │ 4. Agrega manualmente    │
-             └──────────────────────────┘
-                   order.LineItems.Add(lineItem)
 
 ##  Consecuencias:
 - Si cambia la estructura de LineItem, hay que modificar Customer

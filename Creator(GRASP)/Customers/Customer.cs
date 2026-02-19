@@ -15,7 +15,7 @@ namespace Creator_GRASP_.Customers
         public string Email { get; private set; } = string.Empty;
         public string Name { get; private set; } = string.Empty;
 
-        // Se usa un Factory Method para delegar la creacion de customer´s  y evitar la aparicion de new() por todas partes
+        // Se usa un Factory Method para que  solo pueden crearse a través de sus métodos Register()   y evitar la aparicion de new() por todas partes
         public static Customer Register(string email, string name)
         {
 
@@ -26,11 +26,10 @@ namespace Creator_GRASP_.Customers
                 Name = name,
             };
         }
+        //Por que customer es quien crea a Order ? R// Poseedor de Datos: El cliente inicia el proceso de compra.
         public Order CreateOrder()
         {
-            //Ya no se puede crear new por todas partes
-            var producto = new Product();
-            var order = new Order();
+         
 
             // Customer solo crea el aggregate Order
             // No conoce ni crea LineItems

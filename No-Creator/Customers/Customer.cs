@@ -15,13 +15,7 @@ namespace No_Creator.Customers
         public void CreateOrder(int customerId)
         {
             //El cliente no tiene por que crear productos
-            var product = new Product {
-                Id = 1,
-                Name = "PS5",
-                Price = 200000,
-                Currency = "COP"
-
-            };
+            var product = this.CreateProducto("ps5",1000,"COP");
             //La relación entre el cliente y la orden es de composición, por eso no se viola el Creator 
             var order = new Order
             {
@@ -31,6 +25,28 @@ namespace No_Creator.Customers
 
             //El que contiene es el que crea, como Order contiene LineItems, debería ser Order quien los cree.
             //El patrón Creator es violado acá, ya que el cliente no tiene relación con LineItems
+            var lineItem = this.CreateLineItem(order,product);
+
+            order.LineItems.Add(lineItem);
+
+        }
+
+        public Product CreateProducto(string name, decimal price,string currency)
+        {
+            var product = new Product
+            {
+                Id = 1,
+                Name = name,
+                Price = price,
+                Currency = currency
+
+            };
+
+            return product;
+        }
+
+        public LineItem CreateLineItem(Order order, Product product) {
+
             var lineItem = new LineItem
             {
                 Id = 1,
@@ -40,9 +56,7 @@ namespace No_Creator.Customers
                 Currency = "COP"
 
             };
-
-            order.LineItems.Add(lineItem);
-
+            return lineItem;
         }
     }
 

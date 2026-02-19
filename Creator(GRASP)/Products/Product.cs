@@ -12,6 +12,7 @@
         public string Currency { get; private set; } = string.Empty;
         public int Inventory { get; set; }
 
+        //solo pueden crearse a través de sus métodos Register(). Esto previene el "caos del new" en cualquier parte de la aplicación.
         public static Product Register(string name,decimal price,string currency,int inventory) {
 
             return new Product {

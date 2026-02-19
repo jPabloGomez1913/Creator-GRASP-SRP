@@ -30,8 +30,9 @@ namespace Creator_GRASP_.Orders
             return order;
          
         }
-        
+
         //Order crea LineItem porque Order CONTIENE LineItems
+        //Contenedor: Order agrega y usa exclusivamente a LineItem.
         public void Add(Product product)
         {
             //El line item nos permite tener un tracking claro del producto

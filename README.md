@@ -24,7 +24,7 @@ En el diseño original, la clase `Customer` estaba fuertemente acoplada a múlti
 
 ![image alt](https://github.com/jPabloGomez1913/Creator-GRASP-SRP/blob/392338d68dfd719a7e53b824ef62f59ea3fd3274/UML%20NoCreator.png)
 
-     ┌──────────┐
+        ┌──────────┐
         │ Customer │
         └────┬─────┘
              │
